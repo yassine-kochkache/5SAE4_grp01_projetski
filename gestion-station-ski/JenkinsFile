@@ -10,7 +10,7 @@ pipeline {
         sh 'git pull origin yassin'
       }
     }
-    stage("MAVEN BUILD") {
+    stage("MAVEN BUILDE") {
       steps {
         sh 'mvn clean install -Dmaven.test.skip=true'
       }
