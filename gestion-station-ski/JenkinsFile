@@ -1,5 +1,9 @@
 pipeline {
   agent any;
+   environment {
+      // Define the path to the pom.xml file on your local machine
+      POM_PATH = 'C:\\Users\\DELL\\Desktop\\5SAE4_grp01_projetski\\gestion-station-ski\\pom.xml'
+    }
   stages {
     stage("GIT") {
       steps {
