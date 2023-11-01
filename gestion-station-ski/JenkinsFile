@@ -1,9 +1,9 @@
 pipeline {
   agent any
-  environment {
-    // Define the path to the pom.xml file on your local machine using Unix-style path
-    POM_PATH = '/var/lib/jenkins/workspace/Projet Ski 5SAE4/C:/Users/DELL/Desktop/5SAE4_grp01_projetski/gestion-station-ski/pom.xml'
-  }
+ environment {
+   // Define the path to the pom.xml file on your local machine
+    POM_PATH = 'C:/Users/DELL/Desktop/5SAE4_grp01_projetski/gestion-station-ski/pom.xml'
+ }
   stages {
     stage("GIT") {
       steps {
@@ -15,8 +15,8 @@ pipeline {
       steps {
         script {
           // Use the environment variable for the POM file path
-          def mavenCmd = "mvn clean install -Dmaven.test.skip=true -f ${POM_PATH}"
-          sh mavenCmd
+           def mavenCmd = "mvn clean install -Dmaven.test.skip=true -f ${POM_PATH}"
+           sh mavenCmd
         }
       }
     }
