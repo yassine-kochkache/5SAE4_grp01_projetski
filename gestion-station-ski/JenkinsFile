@@ -16,7 +16,7 @@ pipeline {
         script {
           // Use the environment variable for the POM file path
            def mavenCmd = "mvn clean install -Dmaven.test.skip=true -f ${POM_PATH}"
-            sh mavenCmd
+           sh mavenCmd
         }
       }
     }
