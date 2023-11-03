@@ -27,7 +27,7 @@ pipeline {
     stage("MOCKITO") {
       steps {
       dir('gestion-station-ski') {
-        sh "mvn test -Dtest=tn.esprit.spring.services.SkierServiceImpMock"
+        sh "mvn test -Dtest=tn.esprit.spring.services.SubscriptionServicesImplMock"
       }}
     }
 
