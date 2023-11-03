@@ -36,8 +36,26 @@ pipeline {
 
          sh 'mvn deploy -Dmaven.test.skip=true';
        }}
-     }
-}
 
+}
+stage("BUILD DOCKER IMAGE") {
+        steps {
+          sh 'docker build -t khaznaji/oumaymalynakhaznaji-5sae4-g1-gestionstationski:latest .'
+        }
+      }
+      stage('docker push'){
+                   steps{
+                       script{
+                           sh 'docker login -u "khaznaji" -p "191JFT2725" docker.io'
+                           sh 'docker push khaznaji/oumaymalynakhaznaji-5sae4-g1-gestionstationski:latest'
+                       }
+                   }
+               }
+
+          stage('docker compose') {
+              steps{
+                  sh 'docker compose up -d'
+              }
+          }
 
 }
