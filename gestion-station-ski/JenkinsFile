@@ -10,6 +10,7 @@ pipeline {
         sh 'git pull origin yassin'
       }
     }
+    //
     stage("MAVEN BUILD") {
       steps {
       // dir('C:/Users/yassi/Desktop/Devops/gestion-station-ski/gestion-station-ski') {
