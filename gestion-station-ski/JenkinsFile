@@ -1,43 +1,34 @@
 pipeline {
-  agent any
- environment {
-   // Define the path to the pom.xml file on your local machine
-   POM_PATH = 'C:/Users/DELL/Desktop/5SAE4_grp01_projetski/gestion-station-ski/pom.xml'
- }
- stages {
-   stage("GIT") {
-     steps {
-       sh 'git checkout khaznaji'
-       sh 'git pull origin khaznaji'
-     }
-   }
-   stage("MAVEN BUILD") {
-     steps {
-       script {
-         // Use the environment variable for the POM file path
-         def mavenCmd = "mvn clean install -Dmaven.test.skip=true -f ${POM_PATH}"
-         sh mavenCmd
-       }
-     }
-   }
-   stage("SONARQUBE") {
-     steps {
-       script {
-         // Use the environment variable for the POM file path
-         def sonarCmd = "mvn sonar:sonar -Dsonar.login=admin -Dsonar.password=azerty123 -f ${POM_PATH}"
-         sh sonarCmd
-       }
-     }
-   }
-   stage("MOCKITO") {
-     steps {
-       script {
-         // Use the environment variable for the POM file path
-         def mockitoCmd = "mvn test -Dtest=tn.esprit.spring.services.InstructorServiceImpMock -f ${POM_PATH}"
-         sh mockitoCmd
-       }
-     }
-   }
- }
+  agent any;
+
+
+
+  stages {
+    stage("GIT") {
+      steps {
+        sh 'git checkout khaznaji'
+        sh 'git pull origin khaznaji'
+      }
+    }
+    //
+    stage("MAVEN BUILD") {
+      steps {
+       dir('gestion-station-ski') {
+        sh 'mvn clean install -Dmaven.test.skip=true'
+      }
+    }
+    stage("SONARQUBE") {
+      steps {
+       sh "mvn sonar:sonar -Dsonar.login=admin -Dsonar.password=azerty123"
+      }
+    }
+    stage("MOCKITO") {
+      steps {
+        sh "mvn test -Dtest=tn.esprit.spring.services.SkierServiceImpMock"
+      }
+    }
+
+}
+
 
 }
