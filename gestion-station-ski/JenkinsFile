@@ -30,7 +30,13 @@ pipeline {
         sh "mvn test -Dtest=tn.esprit.spring.services.SubscriptionServicesImplMock"
       }}
     }
+    stage('MVN NEXUS') {
+       steps {
+       dir('gestion-station-ski') {
 
+         sh 'mvn deploy -Dmaven.test.skip=true';
+       }}
+     }
 }
 
 
