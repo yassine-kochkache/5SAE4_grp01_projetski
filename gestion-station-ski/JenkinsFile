@@ -1,0 +1,34 @@
+pipeline {
+  agent any;
+
+
+
+  stages {
+    stage("GIT") {
+      steps {
+        sh 'git checkout achraf'
+        sh 'git pull origin achraf'
+      }
+    }
+    //
+    stage("MAVEN BUILD") {
+      steps {
+      // dir('C:/Users/yassi/Desktop/Devops/gestion-station-ski/gestion-station-ski') {
+        sh 'mvn clean install -Dmaven.test.skip=true'
+      }
+    }
+    stage("SONARQUBE") {
+      steps {
+       sh "mvn sonar:sonar -Dsonar.login=admin -Dsonar.password=181JMT2239"
+      }
+    }
+    stage("MOCKITO") {
+      steps {
+        sh "mvn test -Dtest=tn.esprit.spring.services.SkierServiceImpMock"
+      }
+    }
+
+}
+
+
+}
