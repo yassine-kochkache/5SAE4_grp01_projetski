@@ -27,7 +27,7 @@ stage("MAVEN BUILD") {
       dir('gestion-station-ski') {
        sh "mvn sonar:sonar -Dsonar.login=admin -Dsonar.password=azerty"
       }}
-    }
+    }}
 
 
 }
