@@ -11,10 +11,12 @@ pipeline {
       }
     }
     //
-    stage("MAVEN BUILD") {
+stage("MAVEN BUILD") {
       steps {
+       dir('gestion-station-ski') {
         sh 'mvn clean install -Dmaven.test.skip=true'
       }
+    }
     }
 
 
