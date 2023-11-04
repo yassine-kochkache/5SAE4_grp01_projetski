@@ -13,7 +13,7 @@ pipeline {
     //
     stage("MAVEN BUILD") {
       steps {
-      // dir('C:/Users/yassi/Desktop/Devops/gestion-station-ski/gestion-station-ski') {
+      dir('gestion-station-ski') {
         sh 'mvn clean install -Dmaven.test.skip=true'
       }
     }
