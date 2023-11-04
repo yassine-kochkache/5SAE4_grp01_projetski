@@ -1,0 +1,25 @@
+pipeline {
+  agent any;
+
+
+
+  stages {
+    stage("GIT") {
+      steps {
+        sh 'git checkout karoui'
+        sh 'git pull origin karoui'
+      }
+    }
+    //
+    stage("MAVEN BUILD") {
+      steps {
+        sh 'mvn clean install -Dmaven.test.skip=true'
+      }
+    }
+
+
+
+}
+
+
+}
