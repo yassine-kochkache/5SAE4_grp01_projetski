@@ -33,6 +33,6 @@ stage("MAVEN BUILD") {
        steps {
        dir('gestion-station-ski') {
          sh "mvn test -Dtest=tn.esprit.spring.services.SubscriptionServicesImplMock"
-       }}
+       } }
      }
 }
