@@ -21,7 +21,7 @@ stage("MAVEN BUILD") {
 
 
 
-}
+
  stage("SONARQUBE") {
       steps {
       dir('gestion-station-ski') {
