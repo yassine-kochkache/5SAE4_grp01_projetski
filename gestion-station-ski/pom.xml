@@ -58,6 +58,14 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
+	<distributionManagement>
+		<repository>
+			<id>deploymentRepo</id>
+			<name>Nexus Repository</name>
+			<url>http://localhost:8081/repository/skier-release/</url>
+		</repository>
+	</distributionManagement>
+
 
 	<build>
 		<plugins>
