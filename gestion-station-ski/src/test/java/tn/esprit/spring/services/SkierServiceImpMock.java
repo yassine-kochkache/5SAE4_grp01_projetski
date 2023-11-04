@@ -40,8 +40,8 @@ public class SkierServiceImpMock {
     @Test
     public void testAddSkier() {
         Skier skier = new Skier();
-        skier.setFirstName("FRAY");
-        skier.setLastName("MHAMED");
+        skier.setFirstName("Yassine");
+        skier.setLastName("Kochkache");
         skier.setDateOfBirth(LocalDate.of(1990, 1, 1));
         skier.setCity("Hammamaet");
 
