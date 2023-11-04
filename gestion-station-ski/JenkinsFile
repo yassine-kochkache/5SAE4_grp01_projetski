@@ -32,7 +32,7 @@ stage("MAVEN BUILD") {
  stage("MOCKITO") {
        steps {
        dir('gestion-station-ski') {
-         sh "mvn test -Dtest=tn.esprit.spring.services.SubscriptionServicesImplMock"
+         sh "mvn test -Dtest=tn.esprit.spring.service.CourseServiceImpMock"
        } }
      }
 }}
