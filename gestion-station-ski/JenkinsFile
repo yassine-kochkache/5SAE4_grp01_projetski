@@ -42,6 +42,17 @@ stage('MVN NEXUS')
         sh 'mvn  deploy -DskipTests  '
         }}
         }
+ stage("build docker image") {
+                            steps {
+                             dir('gestion-station-ski'){
+                              sh 'docker build -t yassinekochkache/yassine-kochkache-gestion-station-ski-1.0.jar .'
+                            }
+                          }}
+
+
+
+
+
 }
 
 
