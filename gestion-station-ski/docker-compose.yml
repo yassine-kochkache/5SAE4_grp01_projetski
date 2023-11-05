@@ -1,17 +1,16 @@
 version: "3"
-services:
 
+services:
   mysqldb:
     image: mysql:5.7
     ports:
-      - 3306:3306
+      - 3307:3306
     restart: unless-stopped
     environment:
-      MYSQL_ROOT_PASSWORD: root
+      MYSQL_ROOT_PASSWORD:
       MYSQL_DATABASE: stationSki
     volumes:
       - db:/var/lib/mysql
-
   backend:
     image: khaznaji/oumaymalynakhaznaji-5sae4-g1-gestionstationski:latest
     ports:
@@ -34,3 +33,4 @@ services:
 
 volumes:
   db:
+
