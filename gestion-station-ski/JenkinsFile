@@ -60,4 +60,3 @@ stage("BUILD DOCKER IMAGE") {
               }}
           }
 
-}
