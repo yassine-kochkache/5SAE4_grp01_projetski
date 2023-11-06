@@ -62,7 +62,18 @@ pipeline {
                                      }
                                  }
 */
-stage('docker push'){
+stage('Deploy Docker Image') {
+        steps {
+         dir('gestion-station-ski') {
+          withCredentials([string(credentialsId: 'pass', variable: 'DOCKER_PASSWORD')]) {
+            sh '''
+              docker login -u yassinekochkache -p $DOCKER_PASSWORD
+              docker push yassinekochkache/yassine-kochkache-grp01-gestion-station-ski:latest
+            '''
+          }
+        }}
+      }
+/*stage('docker push'){
                    steps{
                          dir('gestion-station-ski') {
 
@@ -70,7 +81,7 @@ stage('docker push'){
                            sh 'docker push yassinekochkache/yassine-kochkache-grp01-gestion-station-ski:latest'
                        }
                    }
-               }
+               }*/
 stage('docker compose') {
               steps{
                     dir('gestion-station-ski') {
