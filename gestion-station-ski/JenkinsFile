@@ -53,7 +53,7 @@ stage('docker push'){
                          dir('gestion-station-ski') {
 
                        script{
-                           sh 'docker login -u "yassinekochkache" "azerty123" '
+                           sh 'docker login -u yassinekochkache -p azerty123'
                            sh 'docker push yassinekochkache/yassinekochkache-5sae4-g1-gestionstationski:latest'
                        }
                    }
