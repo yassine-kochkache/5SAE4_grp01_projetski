@@ -75,6 +75,7 @@ pipeline {
           }
         }}
       }*/
+      //
 stage('docker push'){
                    steps{
                          dir('gestion-station-ski') {
