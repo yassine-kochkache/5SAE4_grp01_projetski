@@ -45,7 +45,7 @@ pipeline {
  stage("build docker image") {
                             steps {
                              dir('gestion-station-ski'){
-                              sh 'docker build -t yassinekochkache/yassine-kochkache-grp01-gestion-station-ski:latest .'
+                              sh 'docker build -t yassinekochkache/yassine-kochkache-grp001-gestion-station-ski:latest .'
                             }
                           }}
                        /*   stage('Build and Push Docker Image') {
@@ -79,7 +79,7 @@ stage('docker push'){
                          dir('gestion-station-ski') {
 
                            sh 'docker login -u "mazizkaroui" -p "azerty123" docker.io'
-                           sh 'docker push yassinekochkache/yassine-kochkache-grp01-gestion-station-ski:latest'
+                           sh 'docker push yassinekochkache/yassine-kochkache-grp001-gestion-station-ski:latest'
                        }
                    }
                }
