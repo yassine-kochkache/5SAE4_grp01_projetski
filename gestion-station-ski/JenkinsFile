@@ -17,7 +17,7 @@ stages {
     stage("SONARQUBE") {
       steps {
       dir('gestion-station-ski') {
-       sh "mvn sonar:sonar -Dsonar.login=admin -Dsonar.password=azerty123"
+            sh 'mvn sonar:sonar -Dsonar.login=admin -Dsonar.password=azerty123 -Dsonar.branch.name=khaznaji'
       }}
     }
     stage("MOCKITO") {
