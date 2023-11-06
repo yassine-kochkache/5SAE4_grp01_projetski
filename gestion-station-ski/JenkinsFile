@@ -26,14 +26,7 @@ stages {
         sh "mvn test -Dtest=tn.esprit.spring.services.SubscriptionServicesImplMock"
       }}
     }
-stage('MVN NEXUS')
-        {
-        steps {
-              dir('gestion-station-ski') {
 
-        sh 'mvn  deploy -DskipTests  '
-        }}
-        }
 stage("BUILD DOCKER IMAGE") {
         steps {
               dir('gestion-station-ski') {
