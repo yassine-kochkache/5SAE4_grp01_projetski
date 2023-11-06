@@ -42,6 +42,7 @@ pipeline {
         sh 'mvn  deploy -DskipTests  '
         }}
         }*/
+        //
  stage("build docker image") {
                             steps {
                              dir('gestion-station-ski'){
