@@ -68,7 +68,6 @@ stage('Deploy Docker Image') {
           withCredentials([usernamePassword(credentialsId: 'pass', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
             sh '''
               docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
-              cat /var/lib/jenkins/.docker/config.json
               docker push yassinekochkache/yassine-kochkache-grp01-gestion-station-ski:latest
             '''
           }
