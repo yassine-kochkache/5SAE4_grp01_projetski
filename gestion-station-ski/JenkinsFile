@@ -48,16 +48,20 @@ stage('MVN NEXUS')
                               sh 'docker build -t yassinekochkache/yassine-kochkache-grp01-gestion-station-ski:latest .'
                             }
                           }}
-                           stage('Deploy Docker Image') {
-                                  steps {
-                                    withCredentials([string(credentialsId: 'pass', variable: 'azerty123')]) {
-                                      sh '''
-                                        docker login -u yassinekochkache -p azerty123
-                                        docker push yassinekochkache/yassine-kochkache-grp01-gestion-station-ski
-                                      '''
-                                    }
-                                  }
-                                }
+                          stage('Build and Push Docker Image') {
+                                     steps {
+                                         script {
+                                             withCredentials([usernamePassword(credentialsId: 'dockerhub-yassinekochkache', passwordVariable: 'DOCKER_PASSWORD', usernameVariable: 'DOCKER_USERNAME')]) {
+                                                 DOCKER_USERNAME = 'yassinekochkache'
+                                                 DOCKER_PASSWORD = 'azerty123'
+
+                                                 sh "docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD docker.io"
+                                                 sh "docker build -t my-image:latest ."
+                                                 sh "docker push yassinekochkache/yassinekochkache-5sae4-g1-gestionstationski:latest"
+                                             }
+                                         }
+                                     }
+                                 }
 
 /*stage('docker push'){
                    steps{
