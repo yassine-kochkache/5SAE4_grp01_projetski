@@ -46,7 +46,7 @@ pipeline {
  stage("build docker image") {
                             steps {
                              dir('gestion-station-ski'){
-                              sh 'docker build -t yassinekoch/yassine-kochkache-5sae4-gestion-station-ski:latest .'
+                              sh 'docker build -t yassinekoch/alpine:1.0.0:latest .'
                             }
                           }}
                        /*   stage('Build and Push Docker Image') {
