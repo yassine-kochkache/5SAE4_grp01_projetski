@@ -55,7 +55,7 @@ stage('docker push'){
 
                        script{
                            sh 'docker login -u yassinekochkache -p azerty123'
-                           sh 'docker push yassinekochkache/yassinekochkache-5sae4-g1-gestionstationski'
+                           sh 'docker push yassinekochkache/yassinekochkache-5sae4-g1-gestionstationski:latest'
                        }
                    }
                }}
