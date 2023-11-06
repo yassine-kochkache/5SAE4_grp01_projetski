@@ -56,8 +56,7 @@ stage('MVN NEXUS')
                                                  DOCKER_PASSWORD = 'azerty123'
 
                                                  sh "docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD docker.io"
-                                                 sh "docker build -t my-image:latest ."
-                                                 sh "docker push yassinekochkache/yassinekochkache-5sae4-g1-gestionstationski:latest"
+                                                 sh "docker push yassinekochkache/yassine-kochkache-grp01-gestion-station-ski:latest"
                                              }
                                          }
                                      }
