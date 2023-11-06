@@ -50,9 +50,9 @@ stage('MVN NEXUS')
                           }}
                            stage('Deploy Docker Image') {
                                   steps {
-                                    withCredentials([string(credentialsId: 'docker', variable: 'azerty123')]) {
+                                    withCredentials([string(credentialsId: 'pass', variable: 'DOCKER_PASSWORD')]) {
                                       sh '''
-                                        docker login -u yassinekochkache -p azerty123
+                                        docker login -u yassinekochkache -p $DOCKER_PASSWORD
                                         docker push yassinekochkache/yassine-kochkache-grp01-gestion-station-ski
                                       '''
                                     }
