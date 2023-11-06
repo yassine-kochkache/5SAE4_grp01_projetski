@@ -65,9 +65,9 @@ pipeline {
 stage('Deploy Docker Image') {
         steps {
          dir('gestion-station-ski') {
-          withCredentials([string(credentialsId: 'pass', variable: 'DOCKER_PASSWORD')]) {
+          withCredentials([usernamePassword(credentialsId: 'pass', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
             sh '''
-              docker login -u yassinekochkache -p $DOCKER_PASSWORD
+              docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
               docker push yassinekochkache/yassine-kochkache-grp01-gestion-station-ski:latest
             '''
           }
