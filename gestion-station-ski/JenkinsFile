@@ -39,7 +39,7 @@ stage("MAVEN BUILD") {
      stage("build docker image") {
                          steps {
                          dir('gestion-station-ski'){
-                           sh 'docker build -t mazizkaroui/aziz-karoui-5sae4-gestion-station-ski.latest .'
+                           sh 'docker build -t mazizkaroui/aziz-karoui-5sae4-gestion-station-ski:latest .'
                          }
                        }
                        }
