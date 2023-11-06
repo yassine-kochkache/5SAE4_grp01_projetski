@@ -4,12 +4,12 @@ pipeline {
 
 
   stages {
-//     stage("GIT") {
-//       steps {
-//         sh 'git checkout yassin'
-//         sh 'git pull origin yassin'
-//       }
-//     }
+   stage("GIT") {
+     steps {
+       sh 'git checkout yassin'
+       sh 'git pull origin yassin'
+      }
+    }
 //     //
 //     stage("MAVEN BUILD") {
 //       steps {
