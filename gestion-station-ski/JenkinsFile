@@ -50,7 +50,7 @@ stage("MAVEN BUILD") {
 
                             script{
                                 sh 'docker login -u "mazizkaroui" -p "azerty123" docker.io'
-                                sh 'docker push mazizkaroui/aziz-karoui-5sae4-gestionstationski:latest'
+                                sh 'docker push mazizkaroui/aziz-karoui-5sae4-gestion-station-ski:latest'
                             }
                         }
                     }}
