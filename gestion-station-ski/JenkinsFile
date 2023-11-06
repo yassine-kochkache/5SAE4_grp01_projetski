@@ -35,4 +35,11 @@ stage("MAVEN BUILD") {
          sh "mvn test -Dtest=service.CourseServiceImpMock"
        } }
      }
+
+     stage("build docker image") {
+                         steps {
+                           sh 'docker build -t mazizkaroui/aziz-karoui-5sae4-gestion-station-ski.jar .'
+                         }
+                       }
+
 }}
