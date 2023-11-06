@@ -45,7 +45,7 @@ stage('MVN NEXUS')
  stage("build docker image") {
                             steps {
                              dir('gestion-station-ski'){
-                              sh 'docker build -t yassinekochkache/yassinekochkache-5sae4-g1-gestionstationski:latest .'
+                              sh 'docker build -t yassinekochkache/yassine-kochkache-grp01-gestion-station-ski:latest .'
                             }
                           }}
 
@@ -54,7 +54,7 @@ stage('docker push'){
                          dir('gestion-station-ski') {
 
                            sh 'docker login -u yassinekochkache -p azerty123'
-                           sh 'docker push yassinekochkache/yassinekochkache-5sae4-g1-gestionstationski:latest'
+                           sh 'docker push yassinekochkache/yassine-kochkache-grp01-gestion-station-ski:latest'
                        }
                    }
                }
