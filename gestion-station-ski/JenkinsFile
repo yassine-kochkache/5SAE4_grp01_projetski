@@ -4,31 +4,31 @@ pipeline {
 
 
   stages {
-    stage("GIT") {
-      steps {
-        sh 'git checkout yassin'
-        sh 'git pull origin yassin'
-      }
-    }
-    //
-    stage("MAVEN BUILD") {
-      steps {
-      dir('gestion-station-ski'){
-        sh 'mvn clean install -Dmaven.test.skip=true'
-      }}
-    }
-    stage("SONARQUBE") {
-         steps {
-             	dir('gestion-station-ski'){
-          sh "mvn sonar:sonar -Dsonar.login=admin -Dsonar.password=azerty123"
-         }}
-       }
-        stage("MOCKITO") {
-                steps {
-                    	dir('gestion-station-ski'){
-                 sh "mvn test -Dtest=tn.esprit.spring.services.SkierServiceImpMock"
-                }}
-              }
+//     stage("GIT") {
+//       steps {
+//         sh 'git checkout yassin'
+//         sh 'git pull origin yassin'
+//       }
+//     }
+//     //
+//     stage("MAVEN BUILD") {
+//       steps {
+//       dir('gestion-station-ski'){
+//         sh 'mvn clean install -Dmaven.test.skip=true'
+//       }}
+//     }
+//     stage("SONARQUBE") {
+//          steps {
+//              	dir('gestion-station-ski'){
+//           sh "mvn sonar:sonar -Dsonar.login=admin -Dsonar.password=azerty123"
+//          }}
+//        }
+//         stage("MOCKITO") {
+//                 steps {
+//                     	dir('gestion-station-ski'){
+//                  sh "mvn test -Dtest=tn.esprit.spring.services.SkierServiceImpMock"
+//                 }}
+//               }
 //     stage("MOCKITO") {
 //       steps {
 //       dir('gestion-station-ski'){
@@ -50,9 +50,9 @@ stage('MVN NEXUS')
                           }}
                            stage('Deploy Docker Image') {
                                   steps {
-                                    withCredentials([string(credentialsId: 'docker', variable: 'DOCKER_PASSWORD')]) {
+                                    withCredentials([string(credentialsId: 'docker', variable: 'azerty123')]) {
                                       sh '''
-                                        docker login -u yassinekochkache -p $DOCKER_PASSWORD
+                                        docker login -u yassinekochkache -p azerty123
                                         docker push yassinekochkache/yassine-kochkache-grp01-gestion-station-ski
                                       '''
                                     }
