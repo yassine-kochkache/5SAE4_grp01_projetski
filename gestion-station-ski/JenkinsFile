@@ -104,7 +104,7 @@ stage("Docker Login") {
          stage("Push Image to Docker Hub") {
             steps {
             dir('gestion-station-ski'){
-           sh' docker tag yassine-kochkache-sae4-gestion-station-ski:latest yassinekoch/yassine-kochkache-sae4-gestion-station-ski:latest'
+           sh' docker tag  yassinekoch/yassine-kochkache-sae4-gestion-station-ski:latest'
                 sh 'docker push yassinekoch/yassine-kochkache-sae4-gestion-station-ski:latest'
             }}
         }
