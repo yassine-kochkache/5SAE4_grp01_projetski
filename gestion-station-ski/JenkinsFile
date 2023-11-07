@@ -43,12 +43,12 @@ pipeline {
         }}
         }*/
         //
- stage("build docker image") {
+/* stage("build docker image") {
                             steps {
                              dir('gestion-station-ski'){
                               sh 'docker build -t yassinekoch/alpine:1.0.0:latest .'
                             }
-                          }}
+                          }}*/
                        /*   stage('Build and Push Docker Image') {
                                      steps {
                                          script {
@@ -76,7 +76,7 @@ pipeline {
         }}
       }*/
       //
-stage('docker push'){
+/*stage('docker push'){
                    steps{
                          dir('gestion-station-ski') {
 
@@ -84,7 +84,7 @@ stage('docker push'){
                            sh 'docker push yassinekochkache/yassine-kochkache-5sae4-gestion-station-ski:latest'
                        }
                    }
-               }
+               }*/
 /*stage('docker compose') {
               steps{
                     dir('gestion-station-ski') {
