@@ -77,4 +77,8 @@ public class SubscriptionServicesImpl implements ISubscriptionServices{
                 + subscriptionRepository.recurringRevenueByTypeSubEquals(TypeSubscription.ANNUAL)/12;
         log.info("Monthly Revenue = " + revenue);
     }
+    @Override
+    public List<Subscription> getAllSubscription() {
+        return (List<Subscription>) subscriptionRepository.findAll();
+    }
 }
