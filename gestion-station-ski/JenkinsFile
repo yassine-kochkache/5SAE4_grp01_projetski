@@ -81,7 +81,7 @@ stage('docker push'){
                          dir('gestion-station-ski') {
                          withCredentials([string(credentialsId: 'dockerhub-pwd', variable: 'dockerhubpwd')]){
 
-                           sh 'docker login -u yassinekoch-p ${dockerhubpwd}'
+                           sh 'docker login -u yassinekoch -p ${dockerhubpwd}'
                            sh 'docker push yassinekoch/yassine-kochkache-sae4-gestion-station-ski:latest'
                        }}
                    }
