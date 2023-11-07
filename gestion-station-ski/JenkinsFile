@@ -61,5 +61,13 @@ stage("BUILD DOCKER IMAGE") {
                   }}
                   }
 
+stage("Angular BUILD") {
+  steps {
+    dir('C:/Users/DELL/Desktop/devops/test1') {
+      sh 'ng build --prod' // Make sure to adapt this command to your Angular project
+    }
+  }
+}
+
 
 }}
