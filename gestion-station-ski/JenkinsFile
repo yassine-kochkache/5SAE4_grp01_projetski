@@ -95,15 +95,17 @@ stage("build docker image") {
 
 stage("Docker Login") {
             steps {
+            dir('gestion-station-ski'){
                 withCredentials([usernamePassword(credentialsId: 'DOCKER', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
                     sh "docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD"
                 }
-            }
+            }}
         }
          stage("Push Image to Docker Hub") {
             steps {
+            dir('gestion-station-ski'){
                 sh 'docker push yassinekoch/yassine-kochkache-sae4-gestion-station-ski:latest'
-            }
+            }}
         }
 
 
