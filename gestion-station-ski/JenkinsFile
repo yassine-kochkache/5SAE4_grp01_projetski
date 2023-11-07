@@ -85,15 +85,26 @@ stage("build docker image") {
                        }
                    }
                }*/
-stage('docker compose') {
+/*stage('docker compose') {
               steps{
                     dir('gestion-station-ski') {
 
                   sh 'docker compose up -d'
               }}
-          }
+          }*/
 
-
+stage("Docker Login") {
+            steps {
+                withCredentials([usernamePassword(credentialsId: 'DOCKER', usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
+                    sh "docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD"
+                }
+            }
+        }
+         stage("Push Image to Docker Hub") {
+            steps {
+                sh 'docker push yassinekoch/yassine-kochkache-sae4-gestion-station-ski:latest'
+            }
+        }
 
 
 }
