@@ -76,15 +76,15 @@ stage("build docker image") {
         }}
       }*/
       //
-/*stage('docker push'){
+stage('docker push'){
                    steps{
                          dir('gestion-station-ski') {
 
-                           sh 'docker login -u "mazizkaroui" -p "azerty123" docker.io'
-                           sh 'docker push yassinekochkache/yassine-kochkache-5sae4-gestion-station-ski:latest'
+                           sh 'docker login -u "yassinekoch" -p "azerty123" docker.io'
+                           sh 'docker push yassinekoch/yassine-kochkache-sae4-gestion-station-ski:latest'
                        }
                    }
-               }*/
+               }
 /*stage('docker compose') {
               steps{
                     dir('gestion-station-ski') {
