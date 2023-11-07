@@ -16,7 +16,7 @@ pipeline {
       dir('gestion-station-ski'){
        sh 'mvn clean install -Dmaven.test.skip=true'
       }}
-//     }
+   }
 //     stage("SONARQUBE") {
 //          steps {
 //              	dir('gestion-station-ski'){
