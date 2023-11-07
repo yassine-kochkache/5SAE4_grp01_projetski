@@ -76,6 +76,7 @@ stage("build docker image") {
         }}
       }*/
       //
+      //
 stage('docker push'){
                    steps{
                          dir('gestion-station-ski') {
