@@ -35,13 +35,13 @@ pipeline {
 //         sh "mvn test -Dtest=tn.esprit.spring.services.SkierServiceImpMock"
 //       }}
 //     }
-/*stage('MVN NEXUS')
+stage('MVN NEXUS')
         {
         steps {
         dir('gestion-station-ski'){
         sh 'mvn  deploy -DskipTests  '
         }}
-        }*/
+        }
         //
 stage("build docker image") {
                             steps {
