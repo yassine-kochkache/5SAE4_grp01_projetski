@@ -1,5 +1,9 @@
 pipeline {
   agent any;
+  environment {
+              registryCredential = 'dockerhub'
+              dockerImageBack = "yassinekoch/yassine-kochkache-sae4-gestion-station-ski:latest"
+          }
 
 
 
@@ -77,7 +81,19 @@ stage("build docker image") {
       }*/
       //
       //
-stage('docker push'){
+      //testtt
+      stage('Uploading Backend Image') {
+                  steps{
+                     dir('gestion-station-ski') {
+                          script {
+                              docker.withRegistry( '', registryCredential ) {
+                               sh 'docker push ${dockerImageBack} '
+                              }
+                          }
+                      }
+                  }
+              }
+/*stage('docker push'){
                    steps{
                          dir('gestion-station-ski') {
                          withCredentials([string(credentialsId: 'dockerhub-pwd', variable: 'dockerhubpwd')]){
@@ -86,7 +102,7 @@ stage('docker push'){
                            sh 'docker push yassinekoch/yassine-kochkache-sae4-gestion-station-ski:latest'
                        }}
                    }
-               }
+               }*/
 /*stage('docker compose') {
               steps{
                     dir('gestion-station-ski') {
