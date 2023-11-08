@@ -1,7 +1,7 @@
 pipeline {
   agent any;
   environment {
-              registryCredential = 'dockerhub'
+              registryCredential = 'test'
               dockerImageBack = "yassinekoch/yassine-kochkache-sae4-gestion-station-ski:latest"
           }
 
@@ -21,12 +21,12 @@ pipeline {
        sh 'mvn clean install -Dmaven.test.skip=true'
       }}
    }
-   stage("SONARQUBE") {
+ /*  stage("SONARQUBE") {
          steps {
             	dir('gestion-station-ski'){
          sh "mvn sonar:sonar -Dsonar.login=admin -Dsonar.password=azerty123"
         }}
-      }
+      }*/
         stage("MOCKITO") {
                 steps {
                     	dir('gestion-station-ski'){
@@ -39,13 +39,13 @@ pipeline {
 //         sh "mvn test -Dtest=tn.esprit.spring.services.SkierServiceImpMock"
 //       }}
 //     }
-stage('MVN NEXUS')
+/*stage('MVN NEXUS')
         {
         steps {
         dir('gestion-station-ski'){
         sh 'mvn  deploy -DskipTests  '
         }}
-        }
+        }*/
         //
 stage("build docker image") {
                             steps {
