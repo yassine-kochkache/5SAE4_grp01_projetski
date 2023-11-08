@@ -6,7 +6,7 @@ stages {
         sh 'git checkout khaznaji'
         sh 'git pull origin khaznaji'
       }
-    }
+    }/*
     stage("MAVEN BUILD") {
       steps {
        dir('gestion-station-ski') {
@@ -60,7 +60,7 @@ stage("BUILD DOCKER IMAGE") {
                   sh 'mvn  deploy -DskipTests  '
                   }}
                   }
-
+*/
 /*stage("Angular BUILD") {
   steps {
     dir('C:/Users/DELL/Desktop/devops/test1') {
@@ -78,8 +78,7 @@ stage("BUILD DOCKER IMAGE") {
                              recipientProviders: [[$class: 'DevelopersRecipientProvider']],
                              to: 'oumaymalyna.khaznaji@esprit.tn',
                              from: 'oumaymalyna.khaznaji@esprit.tn',
-                             replyTo: 'oumaymalyna.khaznaji@esprit.tn',
-                             contentType: 'text/plain'
+                             replyTo: 'oumaymalyna.khaznaji@esprit.tn'
                  }
              }
          }
