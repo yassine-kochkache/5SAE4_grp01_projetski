@@ -68,23 +68,21 @@ stage("BUILD DOCKER IMAGE") {
     }
   }
 }*/
-   post {
-        success {
-            // Étape à exécuter en cas de succès du pipeline
-            emailext(
-                subject: "Build Successful",
-                body: "Votre build Jenkins a réussi. Félicitations!",
-                to: "lyna.khaznaji@gmail.com",
-            )
-        }
-        failure {
-            // Étape à exécuter en cas d'échec du pipeline
-            emailext(
-                subject: "Build Failed",
-                body: "Votre build Jenkins a échoué. Veuillez vérifier les détails du build.",
-                to: "lyna.khaznaji@gmail.com",
-            )
-        }
+  stage('MAIL BUILD') {
+             steps {
+                 script {
+                     currentBuildResult = currentBuild.result
+
+                     emailext subject: "${currentBuildResult == 'SUCCESS' ? 'Build Successful' : 'Build Failed'}",
+                             body: "Le build a abouti avec le statut : ${currentBuildResult}",
+                             recipientProviders: [[$class: 'DevelopersRecipientProvider']],
+                             to: 'lyna.khaznaji@gmail.com',
+                             from: 'jenkins@votreentreprise.com',
+                             replyTo: 'noreply@votreentreprise.com',
+                             contentType: 'text/plain'
+                 }
+             }
+         }
 
 
 }}
