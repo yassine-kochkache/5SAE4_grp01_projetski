@@ -61,13 +61,30 @@ stage("BUILD DOCKER IMAGE") {
                   }}
                   }
 
-stage("Angular BUILD") {
+/*stage("Angular BUILD") {
   steps {
     dir('C:/Users/DELL/Desktop/devops/test1') {
       sh 'ng build --prod' // Make sure to adapt this command to your Angular project
     }
   }
-}
+}*/
+   post {
+        success {
+            // Étape à exécuter en cas de succès du pipeline
+            emailext(
+                subject: "Build Successful",
+                body: "Votre build Jenkins a réussi. Félicitations!",
+                to: "lyna.khaznaji@gmail.com",
+            )
+        }
+        failure {
+            // Étape à exécuter en cas d'échec du pipeline
+            emailext(
+                subject: "Build Failed",
+                body: "Votre build Jenkins a échoué. Veuillez vérifier les détails du build.",
+                to: "lyna.khaznaji@gmail.com",
+            )
+        }
 
 
 }}
