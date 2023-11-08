@@ -76,9 +76,9 @@ stage("BUILD DOCKER IMAGE") {
                      emailext subject: "${currentBuildResult == 'SUCCESS' ? 'Build Successful' : 'Build Failed'}",
                              body: "Le build a abouti avec le statut : ${currentBuildResult}",
                              recipientProviders: [[$class: 'DevelopersRecipientProvider']],
-                             to: 'lyna.khaznaji@gmail.com',
-                             from: 'jenkins@votreentreprise.com',
-                             replyTo: 'noreply@votreentreprise.com',
+                             to: 'oumaymalyna.khaznaji@esprit.tn',
+                             from: 'oumaymalyna.khaznaji@esprit.tn',
+                             replyTo: 'oumaymalyna.khaznaji@esprit.tn',
                              contentType: 'text/plain'
                  }
              }
