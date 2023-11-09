@@ -31,7 +31,7 @@ stage("BUILD DOCKER IMAGE") {
         steps {
               dir('gestion-station-ski') {
 
-          sh 'docker build -t khaznaji/oumaymalynakhaznaji-5sae4-g1-gestionstationski:latest .'
+          sh 'docker build -t khaznaji/oumaymalynakhaznaji-5sae4-g1-gestion-station-ski:latest .'
         }}
       }
       stage('docker push'){
@@ -40,7 +40,7 @@ stage("BUILD DOCKER IMAGE") {
 
                        script{
                            sh 'docker login -u "khaznaji" -p "191JFT2725" docker.io'
-                           sh 'docker push khaznaji/oumaymalynakhaznaji-5sae4-g1-gestionstationski:latest'
+                           sh 'docker push khaznaji/oumaymalynakhaznaji-5sae4-g1-gestion-station-ski:latest'
                        }
                    }
                }}
