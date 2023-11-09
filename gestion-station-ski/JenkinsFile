@@ -55,13 +55,7 @@ stage("MAVEN BUILD") {
                         }
                     }}
 
-    stage('MVN NEXUS')
-            {
-            steps {
-            dir('gestion-station-ski'){
-            sh 'mvn  deploy -DskipTests  '
-            }}
-            }
+
 
 
     stage('docker compose') {
@@ -71,4 +65,12 @@ stage("MAVEN BUILD") {
                       sh 'docker compose up -d'
                   }}
               }
+
+     stage('MVN NEXUS')
+                {
+                steps {
+                dir('gestion-station-ski'){
+                sh 'mvn  deploy -DskipTests  '
+                }}
+                }
 }}
