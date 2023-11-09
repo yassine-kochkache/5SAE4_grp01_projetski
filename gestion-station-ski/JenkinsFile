@@ -27,12 +27,12 @@ pipeline {
          sh "mvn sonar:sonar -Dsonar.login=admin -Dsonar.password=azerty123"
         }}
       }*/
-        stage("MOCKITO") {
+      /*  stage("MOCKITO") {
                 steps {
                     	dir('gestion-station-ski'){
                 sh "mvn test -Dtest=tn.esprit.spring.services.SkierServiceImpMock"
                 }}
-              }
+              }*/
 //     stage("MOCKITO") {
 //       steps {
 //       dir('gestion-station-ski'){
@@ -47,12 +47,31 @@ pipeline {
         }}
         }*/
         //
-stage("build docker image") {
+        stage('Build and Push back Image') {
+                     steps {
+                         dir('gestion-station-ski'){
+                         script {
+
+
+                //             // Build the backend Docker image
+                             def backendImage = docker.build('yassine987/projet-devops', '-f /var/lib/jenkins/workspace/projettski_sae4_grp1/gestion-station-ski/Dockerfile .')
+
+                //             // Authentification Docker Hub avec des informations d'identification secrètes
+                             withCredentials([string(credentialsId: 'docker', variable: 'pwd')]) {
+                                 sh "docker login -u yassine987 -p azerty123 "
+                                 // Poussez l'image Docker
+                                 backendImage.push()
+                             }
+                         }
+                         }
+                     }
+                 }
+/*stage("build docker image") {
                             steps {
                              dir('gestion-station-ski'){
                               sh 'docker build -t yassinekoch/yassine-kochkache-sae4-gestion-station-ski:latest .'
                             }
-                          }}
+                          }}*/
                        /*   stage('Build and Push Docker Image') {
                                      steps {
                                          script {
@@ -82,7 +101,7 @@ stage("build docker image") {
       //
       //
       //testtt
-      stage('Uploading Backend Image') {
+    /*  stage('Uploading Backend Image') {
                   steps{
                      dir('gestion-station-ski') {
                           script {
@@ -92,7 +111,7 @@ stage("build docker image") {
                           }
                       }
                   }
-              }
+              }*/
 /*stage('docker push'){
                    steps{
                          dir('gestion-station-ski') {
