@@ -7,7 +7,25 @@ stages {
         sh 'git pull origin khaznaji'
       }
     }
-    stage("MAVEN BUILD") {
+      stage('docker push'){
+                       steps{
+                             dir('gestion-station-ski') {
+
+                           script{
+                               sh 'docker login -u "khaznaji" -p "191JFT2725" docker.io'
+                               sh 'docker push khaznaji/oumaymalynakhaznaji-5sae4-g1-gestion-station-ski:latest'
+                           }
+                       }
+                   }}
+
+              stage('docker compose') {
+                  steps{
+                        dir('gestion-station-ski') {
+
+                      sh 'docker compose up -d'
+                  }}
+              }
+   /* stage("MAVEN BUILD") {
       steps {
        dir('gestion-station-ski') {
         sh 'mvn clean install -Dmaven.test.skip=true'
@@ -34,24 +52,7 @@ stage("BUILD DOCKER IMAGE") {
           sh 'docker build -t khaznaji/oumaymalynakhaznaji-5sae4-g1-gestion-station-ski:latest .'
         }}
       }
-      stage('docker push'){
-                   steps{
-                         dir('gestion-station-ski') {
 
-                       script{
-                           sh 'docker login -u "khaznaji" -p "191JFT2725" docker.io'
-                           sh 'docker push khaznaji/oumaymalynakhaznaji-5sae4-g1-gestion-station-ski:latest'
-                       }
-                   }
-               }}
-
-          stage('docker compose') {
-              steps{
-                    dir('gestion-station-ski') {
-
-                  sh 'docker compose up -d'
-              }}
-          }
           stage('MVN NEXUS')
                   {
                   steps {
@@ -68,7 +69,7 @@ stage("BUILD DOCKER IMAGE") {
     }
   }
 }*/
-  stage('MAIL BUILD') {
+ /* stage('MAIL BUILD') {
              steps {
                  script {
                      currentBuildResult = currentBuild.result
@@ -82,6 +83,6 @@ stage("BUILD DOCKER IMAGE") {
                  }
              }
          }
-
+*/
 
 }}
