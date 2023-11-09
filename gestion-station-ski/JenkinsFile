@@ -63,4 +63,12 @@ stage("MAVEN BUILD") {
             }}
             }
 
+
+    stage('docker compose') {
+                  steps{
+                        dir('gestion-station-ski') {
+
+                      sh 'docker compose up -d'
+                  }}
+              }
 }}
