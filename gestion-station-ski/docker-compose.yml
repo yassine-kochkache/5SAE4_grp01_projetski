@@ -17,7 +17,7 @@ services:
       - mysqldb
     image: khaznaji/oumaymalynakhaznaji-5sae4-g1-gestion-station-ski:latest
     ports:
-      - "8089:8089"
+      - "8085:8089"
     networks:
       - test
     environment:
