@@ -29,11 +29,11 @@ public class SubscriptionRestController {
     public Subscription addSubscription(@RequestBody Subscription subscription){
         return  subscriptionServices.addSubscription(subscription);
     }
-    @GetMapping("/list")
+   /* @GetMapping("/list")
     public ResponseEntity<List<Subscription>> getAllEventsdetails() {
         List<Subscription> list = subscriptionServices.getAllSubscription();
         return new ResponseEntity<List<Subscription>>(list, HttpStatus.OK);
-    }
+    }*/
     @Operation(description = "Retrieve Subscription by Id")
     @GetMapping("/get/{id-subscription}")
     public Subscription getById(@PathVariable("id-subscription") Long numSubscription){
