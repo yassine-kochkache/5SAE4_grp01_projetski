@@ -47,7 +47,7 @@ pipeline {
         }}
         }*/
         //
-        stage('Build and Push back Image') {
+        /*stage('Build and Push back Image') {
                      steps {
                          dir('gestion-station-ski'){
                          script {
@@ -65,13 +65,13 @@ pipeline {
                          }
                          }
                      }
-                 }
-/*stage("build docker image") {
+                 }*/
+stage("build docker image") {
                             steps {
                              dir('gestion-station-ski'){
-                              sh 'docker build -t yassinekoch/yassine-kochkache-sae4-gestion-station-ski:latest .'
+                              sh 'docker build -t yassine-kochkache-sae4-gestion-station-ski:latest .'
                             }
-                          }}*/
+                          }}
                        /*   stage('Build and Push Docker Image') {
                                      steps {
                                          script {
@@ -112,16 +112,16 @@ pipeline {
                       }
                   }
               }*/
-/*stage('docker push'){
+stage('docker push'){
                    steps{
                          dir('gestion-station-ski') {
-                         withCredentials([string(credentialsId: 'dockerhub-pwd', variable: 'dockerhubpwd')]){
 
-                           sh 'docker login -u yassinekoch -p ${dockerhubpwd}'
-                           sh 'docker push yassinekoch/yassine-kochkache-sae4-gestion-station-ski:latest'
-                       }}
+                           sh 'docker login -u yassine987 -p azerty123 '
+                           sh 'docker tag yassine-kochkache-sae4-gestion-station-ski:latest yassine987/yassine-kochkache-sae4-gestion-station-ski:latest'
+                           sh 'docker push yassine987/yassine-kochkache-sae4-gestion-station-ski:latest'
+                       }
                    }
-               }*/
+               }
 /*stage('docker compose') {
               steps{
                     dir('gestion-station-ski') {
