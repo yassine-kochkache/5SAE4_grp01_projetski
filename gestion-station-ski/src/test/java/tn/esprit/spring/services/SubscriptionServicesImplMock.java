@@ -69,7 +69,7 @@ public class SubscriptionServicesImplMock {
     }
 
     @Test
-    public void testRetrieveSubscriptionById() {
+     void testRetrieveSubscriptionById() {
         // Create a Subscription object for testing
         Subscription subscription = new Subscription();
         subscription.setNumSub(1L);
