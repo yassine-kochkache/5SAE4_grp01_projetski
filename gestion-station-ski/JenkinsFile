@@ -87,7 +87,7 @@ stage("build docker image") {
                                  }
 */
 
-/*stage('Deploy Docker Image') {
+/stage('Deploy Docker Image') {
         steps {
          dir('gestion-station-ski') {
          withCredentials([string(credentialsId: 'dockerhub-pwd', variable: 'dockerhubpwd')]) {
@@ -115,13 +115,15 @@ stage("build docker image") {
 stage('docker push'){
                    steps{
                          dir('gestion-station-ski') {
+                                                      withCredentials([string(credentialsId: 'testtesttest', variable: 'pwd')]) {
+
 
                            sh 'docker login -u yassine987 -p azerty123 '
                            sh 'docker tag yassine-kochkache-sae4-gestion-station-ski:latest yassine987/yassine-kochkache-sae4-gestion-station-ski:latest'
                            sh 'docker push yassine987/yassine-kochkache-sae4-gestion-station-ski:latest'
                        }
                    }
-               }
+               }}
 /*stage('docker compose') {
               steps{
                     dir('gestion-station-ski') {
