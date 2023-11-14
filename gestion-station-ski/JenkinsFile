@@ -115,7 +115,6 @@ stage("build docker image") {
 stage('docker push'){
                    steps{
                          dir('gestion-station-ski') {
-                                                      withCredentials([string(credentialsId: 'testtesttest', variable: 'pwd')]) {
 
 
                            sh 'docker login -u yassine987 -p azerty123 '
@@ -123,7 +122,7 @@ stage('docker push'){
                            sh 'docker push yassine987/yassine-kochkache-sae4-gestion-station-ski:latest'
                        }
                    }
-               }}
+               }
 /*stage('docker compose') {
               steps{
                     dir('gestion-station-ski') {
