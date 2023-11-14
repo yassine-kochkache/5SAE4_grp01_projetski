@@ -69,8 +69,8 @@ pipeline {
 stage("build docker image") {
                             steps {
                              dir('gestion-station-ski'){
-                              sh 'docker build -t yassine-kochkache-sae4-gestion-station-ski:latest .'
-                              sh 'docker tag yassine-kochkache-sae4-gestion-station-ski:latest yassine987/yassine-kochkache-sae4-gestion-station-ski:latest'
+                              sh 'docker build -t yassine987/yassine-kochkache-sae4-gestion-station-ski:latest .'
+                              sh 'docker tag yassine987/yassine-kochkache-sae4-gestion-station-ski:latest yassine987/yassine987/yassine-kochkache-sae4-gestion-station-ski:latest'
 
                             }
                           }}
@@ -121,7 +121,7 @@ stage('docker push'){
 
 
                            sh 'docker login -u yassine987 -p azerty123 '
-                           sh 'docker push yassine987/yassine-kochkache-sae4-gestion-station-ski:latest'
+                           sh 'docker push yassine987/yassine987/yassine-kochkache-sae4-gestion-station-ski:latest'
 
                    }
                }}
