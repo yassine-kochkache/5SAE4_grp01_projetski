@@ -89,7 +89,7 @@ stage("build docker image") {
                                  }
 */
 
-/*stage('Deploy Docker Image') {
+stage('Deploy Docker Image') {
         steps {
          dir('gestion-station-ski') {
 withCredentials([string(credentialsId: 'dock-pwd', variable: 'dockpwd')]) {
@@ -100,7 +100,7 @@ withCredentials([string(credentialsId: 'dock-pwd', variable: 'dockpwd')]) {
 
           }
         }}
-      }*/
+      }
       //
       //
       //testtt
@@ -115,7 +115,7 @@ withCredentials([string(credentialsId: 'dock-pwd', variable: 'dockpwd')]) {
                       }
                   }
               }*/
-stage('docker push'){
+/*stage('docker push'){
                    steps{
                          dir('gestion-station-ski') {
 
@@ -129,7 +129,7 @@ stage('docker push'){
                            sh 'docker tag yassine-sae4-gestion-station-ski:latest yassine987/yassine-sae4-gestion-station-ski:latest'
 
                    }
-               }}
+               }}*/
 /*stage('docker compose') {
               steps{
                     dir('gestion-station-ski') {
