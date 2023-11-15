@@ -94,7 +94,7 @@ stage('Deploy Docker Image') {
          dir('gestion-station-ski') {
          withCredentials([string(credentialsId: 'dockerhub-pwd', variable: 'dockerhubpwd')]) {
 
-             sh 'docker login -u yassine987 -p $DOCKER_PASSWORD'
+             sh ' docker login -u yassine987 -p $DOCKER_PASSWORD '
               sh 'docker tag yassine-sae4-gestion-station-ski:latest yassine987/yassine-sae4-gestion-station-ski:latest'
              sh 'docker push yassine987/yassine-sae4-gestion-station-ski:latest'
 
