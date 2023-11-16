@@ -36,12 +36,12 @@ stage('MVN NEXUS')
                   }
                   }}*/
 
-stage("Angular BUILD") {
+/*stage("Angular BUILD") {
    steps {
      git branch: 'main', url: 'https://github.com/khaznaji/Angular-DEVOPS.git'
      sh 'docker build -t khaznaji/test:latest -f Dockerfile .'
    }
- }
+ }*/
   stage("BUILD DOCKER IMAGE") {
              steps {
                    dir('gestion-station-ski') {
