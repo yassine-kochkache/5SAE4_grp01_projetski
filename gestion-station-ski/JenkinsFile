@@ -140,8 +140,8 @@ withCredentials([string(credentialsId: 'dock-pwd', variable: 'dockpwd')]) {
 stage('docker compose') {
               steps{
                     dir('gestion-station-ski') {
-
-                  sh 'docker compose up -d'
+  sh 'docker compose down --rmi all'
+  sh 'docker compose up -d'
               }}
           }
 
