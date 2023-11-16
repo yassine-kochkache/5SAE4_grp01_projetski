@@ -7,31 +7,7 @@ stages {
         sh 'git pull origin khaznaji'
       }
     }
- /*   stage("BUILD DOCKER IMAGE") {
-            steps {
-                  dir('gestion-station-ski') {
-
-              sh 'docker build -t khaznaji/oumaymalynakhaznaji-5sae4-g1-gestion-station-ski:latest .'
-            }}
-          }
-      stage('docker push'){
-                       steps{
-                             dir('gestion-station-ski') {
-
-                           script{
-                               sh 'docker login -u "khaznaji" -p "191JFT2725" docker.io'
-                               sh 'docker push khaznaji/oumaymalynakhaznaji-5sae4-g1-gestion-station-ski:latest'
-                           }
-                       }
-                   }}
-
-              stage('docker compose') {
-                  steps{
-                        dir('gestion-station-ski') {
-                      sh 'docker compose down --rmi all'
-                      sh 'docker compose up -d'
-                  }}
-              }*/
+ /*  */
     stage("MAVEN BUILD") {
       steps {
        dir('gestion-station-ski') {
@@ -66,6 +42,33 @@ stage("Angular BUILD") {
      sh 'docker build -t khaznaji/test:latest -f Dockerfile .'
    }
  }
+  stage("BUILD DOCKER IMAGE") {
+             steps {
+                   dir('gestion-station-ski') {
+
+               sh 'docker build -t khaznaji/oumaymalynakhaznaji-5sae4-g1-gestion-station-ski:latest .'
+             }}
+           }
+       stage('docker push'){
+                        steps{
+                              dir('gestion-station-ski') {
+
+                            script{
+                                sh 'docker login -u "khaznaji" -p "191JFT2725" docker.io'
+                                sh 'docker push khaznaji/oumaymalynakhaznaji-5sae4-g1-gestion-station-ski:latest'
+                                sh 'docker push khaznaji/test:latest'
+
+                            }
+                        }
+                    }}
+
+               stage('docker compose') {
+                   steps{
+                         dir('gestion-station-ski') {
+                       sh 'docker compose down --rmi all'
+                       sh 'docker compose up -d'
+                   }}
+               }
 
  /* stage('MAIL BUILD') {
              steps {
