@@ -45,9 +45,11 @@ stage("Angular BUILD") {
   stage("BUILD DOCKER IMAGE") {
              steps {
                    dir('gestion-station-ski') {
+                  sh 'docker rmi khaznaji/oumaymalynakhaznaji-5sae4-g1-gestion-station-ski:latest .'
+
                sh 'docker build -t khaznaji/oumaymalynakhaznaji-5sae4-g1-gestion-station-ski:latest .'
-               /*git branch: 'main', url: 'https://github.com/khaznaji/Angular-DEVOPS.git'
-               sh 'docker build -t khaznaji/test:latest -f Dockerfile .'*/
+               git branch: 'main', url: 'https://github.com/khaznaji/Angular-DEVOPS.git'
+               sh 'docker build -t khaznaji/test:latest -f Dockerfile .'
              }}
            }
        stage('docker push'){
