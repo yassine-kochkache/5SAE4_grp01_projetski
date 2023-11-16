@@ -36,7 +36,7 @@ services:
     container_name: angular
     restart: on-failure
     ports:
-      - "4200:80"
+      - "4200:4200"
     depends_on:
       - gestionstationski
 networks:
