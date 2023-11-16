@@ -7,7 +7,7 @@ stages {
         sh 'git pull origin khaznaji'
       }
     }
- /*  */
+ /*
     stage("MAVEN BUILD") {
       steps {
        dir('gestion-station-ski') {
@@ -41,7 +41,7 @@ stage("Angular BUILD") {
      git branch: 'main', url: 'https://github.com/khaznaji/Angular-DEVOPS.git'
      sh 'docker build -t khaznaji/test:latest -f Dockerfile .'
    }
- }
+ }*/
   stage("BUILD DOCKER IMAGE") {
              steps {
                    dir('gestion-station-ski') {
