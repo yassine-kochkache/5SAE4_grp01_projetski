@@ -12,7 +12,7 @@ services:
     volumes:
       - db:/var/lib/mysql
   backend:
-    image: yassinekoch/yassinekochkache-5sae4-g1-gestionstationski:latest
+    image: yassine987/yassine-sae4-gestion-station-ski:lates
     ports:
       - 8089:8089
     restart: on-failure
