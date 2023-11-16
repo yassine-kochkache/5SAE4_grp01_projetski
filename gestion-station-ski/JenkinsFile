@@ -39,21 +39,19 @@ stages {
       }
     }
     }
-
+    stage("MOCKITO") {
+          steps {
+          dir('gestion-station-ski') {
+            sh "mvn test -Dtest=tn.esprit.spring.services.SubscriptionServicesImplMock"
+          }}
+        }
     stage("SONARQUBE") {
       steps {
       dir('gestion-station-ski') {
        sh "mvn sonar:sonar -Dsonar.login=admin -Dsonar.password=azerty123"
       }}
     }
-     stage("MOCKITO") {
-          steps {
-          dir('gestion-station-ski') {
-            sh "mvn test -Dtest=tn.esprit.spring.services.SubscriptionServicesImplMock"
-          }}
-        }
-
-          stage('MVN NEXUS')
+stage('MVN NEXUS')
                   {
                   steps {
                         dir('gestion-station-ski') {
@@ -62,13 +60,12 @@ stages {
                   }}
                   }
 
-/*stage("Angular BUILD") {
+stage("Angular BUILD") {
   steps {
-    dir('C:/Users/DELL/Desktop/devops/test1') {
-      sh 'ng build --prod' // Make sure to adapt this command to your Angular project
+  sh " git branch: 'main', url: 'https://github.com/khaznaji/Angular-DEVOPS.git'"
     }
   }
-}*/
+}
  /* stage('MAIL BUILD') {
              steps {
                  script {
