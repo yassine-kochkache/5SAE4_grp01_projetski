@@ -10,8 +10,8 @@ pipeline {
         sh 'git pull origin achraf'
       }}
     }
-    //
-   /* stage("MAVEN BUILD") {
+
+    stage("MAVEN BUILD") {
       steps {
        dir('gestion-station-ski') {
         sh 'mvn clean install -Dmaven.test.skip=true'
@@ -23,7 +23,7 @@ pipeline {
        sh "mvn sonar:sonar -Dsonar.login=admin -Dsonar.password=181JMT2239"
       }}
     }
-    stage("MOCKITO") {
+    stage("Junit/MOCKITO") {
       steps {
         dir('gestion-station-ski') {
         sh "mvn test"
