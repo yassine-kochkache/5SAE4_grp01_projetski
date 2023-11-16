@@ -7,7 +7,7 @@ services:
       - 3307:3306
     restart: unless-stopped
     environment:
-      MYSQL_ROOT_PASSWORD:
+      MYSQL_ROOT_PASSWORD: "root"
       MYSQL_DATABASE: stationSki
     volumes:
       - db:/var/lib/mysql
