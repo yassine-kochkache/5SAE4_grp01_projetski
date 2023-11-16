@@ -1,12 +1,6 @@
 pipeline {
   agent any;
-  /*environment {
-              registryCredential = 'test'
-              dockerImageBack = "yassinekoch/yassine-kochkache-sae4-gestion-station-ski:latest"
-          }*/
 
-
-//
   stages {
    stage("GIT") {
      steps {
@@ -108,38 +102,10 @@ withCredentials([string(credentialsId: 'dock-pwd', variable: 'dockpwd')]) {
           }
         }}
       }
-      //
-      //
-      //testtt
-    /*  stage('Uploading Backend Image') {
-                  steps{
-                     dir('gestion-station-ski') {
-                          script {
-                              docker.withRegistry( '', registryCredential ) {
-                               sh 'docker push ${dockerImageBack} '
-                              }
-                          }
-                      }
-                  }
-              }*/
-/*stage('docker push'){
-                   steps{
-                         dir('gestion-station-ski') {
 
-
-                           sh 'docker tag yassine-sae4-gestion-station-ski:latest yassine987/yassine-sae4-gestion-station-ski:latest'
-
-                           sh 'docker login -u yassine987 -p dckr_pat_seNn2iuJHokRSzf5Ohc0wdiu0p0 '
-                           sh 'docker tag yassine-sae4-gestion-station-ski:latest yassine987/yassine-sae4-gestion-station-ski:latest'
-
-                           sh 'docker push yassine987/yassine-sae4-gestion-station-ski:latest'
-                           sh 'docker tag yassine-sae4-gestion-station-ski:latest yassine987/yassine-sae4-gestion-station-ski:latest'
-
-                   }
-               }}*/
 stage('docker compose') {
               steps{
-                    dir('gestion-station-ski') {
+                             dir('gestion-station-ski'){
 
                   sh 'docker compose up -d'
               }}
