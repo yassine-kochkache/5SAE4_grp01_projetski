@@ -106,6 +106,8 @@ withCredentials([string(credentialsId: 'dock-pwd', variable: 'dockpwd')]) {
 stage('docker compose') {
               steps{
                              dir('gestion-station-ski'){
+                                           sh 'docker tag yassine-sae4-gestion-station-ski:latest yassine987/yassine-sae4-gestion-station-ski:latest'
+
                sh 'docker-compose up -d'
               }}
           }
