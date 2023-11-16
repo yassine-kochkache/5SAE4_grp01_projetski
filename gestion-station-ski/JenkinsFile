@@ -107,7 +107,7 @@ stage('docker compose') {
               steps{
                              dir('gestion-station-ski'){
 
-               sh 'docker compose up '
+               sh 'docker compose -d '
               }}
           }
 
