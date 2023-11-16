@@ -73,4 +73,23 @@ stage("MAVEN BUILD") {
                 sh 'mvn  deploy -DskipTests  '
                 }}
                 }
-}}
+}
+
+post {
+        success {
+            emailext(
+                subject: "Jenkins Pipeline: Success",
+                body: "Your Jenkins pipeline has successfully completed.",
+                to: 'mohamedaziz.karoui@esprit.tn'
+            )
+        }
+        failure {
+            emailext(
+                subject: "Jenkins Pipeline: Failure",
+                body: "Your Jenkins pipeline has failed. Please check the build logs for more details.",
+                to: 'mohamedaziz.karoui@esprit.tn'
+            )
+        }
+    }
+
+}
