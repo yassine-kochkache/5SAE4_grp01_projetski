@@ -56,13 +56,16 @@ pipeline {
                                   }
                               }
                           }
-    tage("docker-compose") {
+    stage("docker-compose") {
                                                       steps {
                                                        dir('gestion-station-ski'){
                                                         sh 'docker compose up -d'
                                                       }
+
                                                     }
+
                                                     }
+
                       }
 
 
