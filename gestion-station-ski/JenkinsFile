@@ -21,12 +21,18 @@ pipeline {
        sh 'mvn clean install -Dmaven.test.skip=true'
       }}
    }
- /*  stage("SONARQUBE") {
+   stage("MOCKITO") {
+                   steps {
+                       	dir('gestion-station-ski'){
+                   sh "mvn test -Dtest=tn.esprit.spring.services.SkierServiceImpMock"
+                   }}
+                 }
+  stage("SONARQUBE") {
          steps {
             	dir('gestion-station-ski'){
          sh "mvn sonar:sonar -Dsonar.login=admin -Dsonar.password=azerty123"
         }}
-      }*/
+      }
       /*  stage("MOCKITO") {
                 steps {
                     	dir('gestion-station-ski'){
@@ -39,13 +45,13 @@ pipeline {
 //         sh "mvn test -Dtest=tn.esprit.spring.services.SkierServiceImpMock"
 //       }}
 //     }
-/*stage('MVN NEXUS')
+stage('MVN NEXUS')
         {
         steps {
         dir('gestion-station-ski'){
         sh 'mvn  deploy -DskipTests  '
         }}
-        }*/
+        }
         //
         /*stage('Build and Push back Image') {
                      steps {
