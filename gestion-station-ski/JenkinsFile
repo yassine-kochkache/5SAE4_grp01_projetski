@@ -50,7 +50,7 @@ pipeline {
            stage('docker push'){
                               steps{
                                     dir('gestion-station-ski') {
-           
+
                                       sh 'docker login -u "achrafbouslama123" -p "181JMT2239" '
                                       sh 'docker push achrafbouslama123/achraf-bouslama-sae4-gestion-station-ski:latest'
                                   }
