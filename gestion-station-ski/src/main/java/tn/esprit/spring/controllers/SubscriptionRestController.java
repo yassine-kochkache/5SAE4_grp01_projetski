@@ -28,6 +28,11 @@ public class SubscriptionRestController {
     public Subscription addSubscription(@RequestBody Subscription subscription){
         return  subscriptionServices.addSubscription(subscription);
     }
+    @GetMapping("/list")
+    @ResponseBody
+    public List<Subscription> getAll(){
+        return subscriptionServices.getAllSubscription();
+    }
 
     @Operation(description = "Retrieve Subscription by Id")
     @GetMapping("/get/{id-subscription}")
