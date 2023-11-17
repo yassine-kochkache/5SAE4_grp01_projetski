@@ -20,7 +20,7 @@ pipeline {
     stage("SONARQUBE") {
       steps {
         dir('gestion-station-ski') {
-       sh "mvn sonar:sonar -Dsonar.login=admin -Dsonar.password=181JMT2239"
+          sh "mvn sonar:sonar -Dsonar.login=admin -Dsonar.password=sonar"
       }}
     }
     stage("Junit/MOCKITO") {
