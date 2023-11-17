@@ -28,7 +28,7 @@ pipeline {
         }}
       }
 
-stage('NEXUS')
+stage('MVN NEXUS')
         {
         steps {
         dir('gestion-station-ski'){
@@ -92,7 +92,7 @@ withCredentials([string(credentialsId: 'dock-pwd', variable: 'dockpwd')]) {
         }}
       }
 
-stage('docker-compose') {
+stage('docker compose') {
               steps{
                              dir('gestion-station-ski'){
 
