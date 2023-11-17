@@ -61,7 +61,7 @@ stage("MAVEN BUILD") {
     stage('docker compose') {
                   steps{
                         dir('gestion-station-ski') {
-
+                      sh 'docker compose down'
                       sh 'docker compose up -d'
                   }}
               }
