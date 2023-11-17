@@ -85,19 +85,6 @@ stage('MVN NEXUS')
                  }
              }
          }
-post {
-        failure {
-            emailext subject: "Failed: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'",
-                      body: "Something is wrong with ${env.JOB_NAME} build #${env.BUILD_NUMBER}\n\n${BUILD_LOG_REGEX, linesToDisplay=10}",
-                      to: 'oumaymalyna.khaznaji@esprit.tn',
-                      mimeType: 'text/html'
-        }
-        success {
-            emailext subject: "Successful: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'",
-                      body: "Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' has finished successfully.\n\n${BUILD_LOG_REGEX, linesToDisplay=10}",
-                      to: 'oumaymalyna.khaznaji@esprit.tn',
-                      mimeType: 'text/html'
-        }
-    }
+
 
 }}
