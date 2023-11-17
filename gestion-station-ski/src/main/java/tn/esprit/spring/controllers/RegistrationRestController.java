@@ -19,7 +19,7 @@ import java.util.List;
 public class RegistrationRestController {
     private final IRegistrationServices registrationServices;
 
-    @Operation(description = "Add Registration and Assign to Skier")
+  /*  @Operation(description = "Add Registration and Assign to Skier")
     @PutMapping("/addAndAssignToSkier/{numSkieur}")
     public Registration addAndAssignToSkier(@RequestBody Registration registration,
                                                      @PathVariable("numSkieur") Long numSkieur)
@@ -42,7 +42,7 @@ public class RegistrationRestController {
     {
         return  registrationServices.addRegistrationAndAssignToSkierAndCourse(registration,numSkieur,numCourse);
     }
-
+*/
     @Operation(description = "Numbers of the weeks when an instructor has given lessons in a given support")
     @GetMapping("/numWeeks/{numInstructor}/{support}")
     public List<Integer> numWeeksCourseOfInstructorBySupport(@PathVariable("numInstructor")Long numInstructor,

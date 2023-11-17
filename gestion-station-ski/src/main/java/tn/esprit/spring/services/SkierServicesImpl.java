@@ -29,7 +29,7 @@ public class SkierServicesImpl implements ISkierServices {
         return skierRepository.findAll();
     }
 
-    @Override
+ /*   @Override
     public Skier addSkier(Skier skier) {
         switch (skier.getSubscription().getTypeSub()) {
             case ANNUAL:
@@ -64,7 +64,7 @@ public class SkierServicesImpl implements ISkierServices {
             registrationRepository.save(r);
         }
         return savedSkier;
-    }
+    }*/
 
     @Override
     public void removeSkier(Long numSkier) {
@@ -76,7 +76,7 @@ public class SkierServicesImpl implements ISkierServices {
         return skierRepository.findById(numSkier).orElse(null);
     }
 
-    @Override
+  /*  @Override
     public Skier assignSkierToPiste(Long numSkieur, Long numPiste) {
         Skier skier = skierRepository.findById(numSkieur).orElse(null);
         Piste piste = pisteRepository.findById(numPiste).orElse(null);
@@ -89,10 +89,12 @@ public class SkierServicesImpl implements ISkierServices {
         }
 
         return skierRepository.save(skier);
-    }
+    }*/
 
-    @Override
+  /*  @Override
     public List<Skier> retrieveSkiersBySubscriptionType(TypeSubscription typeSubscription) {
         return skierRepository.findBySubscription_TypeSub(typeSubscription);
-    }
+    }*/@Override
+    public Skier add (Skier skier)
+    { return skierRepository.save(skier);}
 }

@@ -71,6 +71,8 @@ stage("build docker image") {
                              dir('gestion-station-ski'){
                               sh 'docker build -t yassine-sae4-gestion-station-ski:latest .'
                            //   sh 'docker tag yassine-kochkache-sae4-gestion-station-ski:latest yassine987/yassine-kochkache-sae4-gestion-station-ski:latest'
+   git branch: 'master', url: 'https://github.com/yassine-kochkache/Angular.git'
+               sh 'docker build -t yassine987/angular:latest -f Dockerfile .'
 
                             }
                           }}
@@ -97,8 +99,7 @@ withCredentials([string(credentialsId: 'dock-pwd', variable: 'dockpwd')]) {
               sh 'docker tag yassine-sae4-gestion-station-ski:latest yassine987/yassine-sae4-gestion-station-ski:latest'
            //   sh 'docker login'
              sh 'docker push yassine987/yassine-sae4-gestion-station-ski:latest'
-
-
+sh 'docker push yassine987/angular:latest'
           }
         }}
       }

@@ -30,9 +30,9 @@ public class Registration implements Serializable {
 	Long numRegistration;
 	int numWeek;
 
-	@JsonIgnore
+/*	@JsonIgnore
 	@ManyToOne
-    Skier skier;
+    Skier skier;*/
 	@JsonIgnore
 	@ManyToOne
 	Course course;

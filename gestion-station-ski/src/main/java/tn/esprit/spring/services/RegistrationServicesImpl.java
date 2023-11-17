@@ -22,22 +22,22 @@ public class RegistrationServicesImpl implements  IRegistrationServices{
     private ICourseRepository courseRepository;
 
 
-    @Override
+  /*  @Override
     public Registration addRegistrationAndAssignToSkier(Registration registration, Long numSkier) {
         Skier skier = skierRepository.findById(numSkier).orElse(null);
         registration.setSkier(skier);
         return registrationRepository.save(registration);
-    }
+    }*/
 
-    @Override
+    /*@Override
     public Registration assignRegistrationToCourse(Long numRegistration, Long numCourse) {
         Registration registration = registrationRepository.findById(numRegistration).orElse(null);
         Course course = courseRepository.findById(numCourse).orElse(null);
         registration.setCourse(course);
         return registrationRepository.save(registration);
     }
-
-    @Transactional
+*/
+  /*  @Transactional
     @Override
     public Registration addRegistrationAndAssignToSkierAndCourse(Registration registration, Long numSkieur, Long numCours) {
         Skier skier = skierRepository.findById(numSkieur).orElse(null);
@@ -91,12 +91,12 @@ public class RegistrationServicesImpl implements  IRegistrationServices{
         }
         return registration;
 
-    }
-    private Registration assignRegistration (Registration registration, Skier skier, Course course){
+    }*/
+  /*  private Registration assignRegistration (Registration registration, Skier skier, Course course){
         registration.setSkier(skier);
         registration.setCourse(course);
         return registrationRepository.save(registration);
-    }
+    }*/
 
     @Override
     public List<Integer> numWeeksCourseOfInstructorBySupport(Long numInstructor, Support support) {

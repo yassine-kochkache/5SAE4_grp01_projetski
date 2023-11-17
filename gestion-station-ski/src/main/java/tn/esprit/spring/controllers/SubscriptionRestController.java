@@ -18,20 +18,20 @@ import java.util.Set;
 @RequiredArgsConstructor
 public class SubscriptionRestController {
 
-    private final ISubscriptionServices subscriptionServices;
+   /* private final ISubscriptionServices subscriptionServices;
 
     @Operation(description = "Add Subscription ")
     @PostMapping("/add")
     public Subscription addSubscription(@RequestBody Subscription subscription){
         return  subscriptionServices.addSubscription(subscription);
     }
-    @Operation(description = "Retrieve Subscription by Id")
+  /*  @Operation(description = "Retrieve Subscription by Id")
     @GetMapping("/get/{id-subscription}")
     public Subscription getById(@PathVariable("id-subscription") Long numSubscription){
         return subscriptionServices.retrieveSubscriptionById(numSubscription);
-    }
+    }*/
     
-    @Operation(description = "Retrieve Subscriptions by Type")
+  /*  @Operation(description = "Retrieve Subscriptions by Type")
     @GetMapping("/all/{typeSub}")
     public Set<Subscription> getSubscriptionsByType(@PathVariable("typeSub")TypeSubscription typeSubscription){
         return subscriptionServices.getSubscriptionByType(typeSubscription);
@@ -47,5 +47,5 @@ public class SubscriptionRestController {
                                                       @PathVariable("date2") LocalDate endDate){
         return subscriptionServices.retrieveSubscriptionsByDates(startDate, endDate);
     }
-
+*/
 }

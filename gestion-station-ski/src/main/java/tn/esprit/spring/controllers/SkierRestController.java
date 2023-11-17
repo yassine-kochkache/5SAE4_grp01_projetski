@@ -14,11 +14,12 @@ import java.util.List;
 @RestController
 @RequestMapping("/skier")
 @RequiredArgsConstructor
+@CrossOrigin("*")
 public class SkierRestController {
 
     private final ISkierServices skierServices;
 
-    @Operation(description = "Add Skier")
+  /*  @Operation(description = "Add Skier")
     @PostMapping("/add")
     public Skier addSkier(@RequestBody Skier skier){
         return  skierServices.addSkier(skier);
@@ -47,13 +48,16 @@ public class SkierRestController {
     @GetMapping("/getSkiersBySubscription")
     public List<Skier> retrieveSkiersBySubscriptionType(TypeSubscription typeSubscription) {
         return skierServices.retrieveSkiersBySubscriptionType(typeSubscription);
-    }
+    }*/
     @Operation(description = "Retrieve Skier by Id")
     @GetMapping("/get/{id-skier}")
     public Skier getById(@PathVariable("id-skier") Long numSkier){
         return skierServices.retrieveSkier(numSkier);
     }
-
+@PostMapping("/add")
+public Skier add (@RequestBody Skier skier)
+{return  skierServices.add(skier);
+}
     @Operation(description = "Delete Skier by Id")
     @DeleteMapping("/delete/{id-skier}")
     public void deleteById(@PathVariable("id-skier") Long numSkier){

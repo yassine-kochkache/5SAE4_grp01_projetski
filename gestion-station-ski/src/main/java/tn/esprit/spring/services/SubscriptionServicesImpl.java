@@ -19,7 +19,7 @@ import java.util.Set;
 @Service
 public class SubscriptionServicesImpl implements ISubscriptionServices{
 
-    private ISubscriptionRepository subscriptionRepository;
+   /* private ISubscriptionRepository subscriptionRepository;
 
     private ISkierRepository skierRepository;
 
@@ -44,12 +44,12 @@ public class SubscriptionServicesImpl implements ISubscriptionServices{
         return subscriptionRepository.save(subscription);
     }
 
-    @Override
+    /*@Override
     public Subscription retrieveSubscriptionById(Long numSubscription) {
         return subscriptionRepository.findById(numSubscription).orElse(null);
-    }
+    }*/
 
-    @Override
+    /*@Override
     public Set<Subscription> getSubscriptionByType(TypeSubscription type) {
         return subscriptionRepository.findByTypeSubOrderByStartDateAsc(type);
     }
@@ -59,22 +59,21 @@ public class SubscriptionServicesImpl implements ISubscriptionServices{
         return subscriptionRepository.getSubscriptionsByStartDateBetween(startDate, endDate);
     }
 
-    @Override
-    @Scheduled(cron = "*/30 * * * * *") /* Cron expression to run a job every 30 secondes */
-    public void retrieveSubscriptions() {
+   // @Override
+   /* public void retrieveSubscriptions() {
         for (Subscription sub: subscriptionRepository.findDistinctOrderByEndDateAsc()) {
             Skier   aSkier = skierRepository.findBySubscription(sub);
             log.info(sub.getNumSub().toString() + " | "+ sub.getEndDate().toString()
                     + " | "+ aSkier.getFirstName() + " " + aSkier.getLastName());
         }
-    }
+    }*/
 
    // @Scheduled(cron = "* 0 9 1 * *") /* Cron expression to run a job every month at 9am */
-    @Scheduled(cron = "*/30 * * * * *") /* Cron expression to run a job every 30 secondes */
-    public void showMonthlyRecurringRevenue() {
+  //  @Scheduled(cron = "*/30 * * * * *") /* Cron expression to run a job every 30 secondes */
+   /* public void showMonthlyRecurringRevenue() {
         Float revenue = subscriptionRepository.recurringRevenueByTypeSubEquals(TypeSubscription.MONTHLY)
                 + subscriptionRepository.recurringRevenueByTypeSubEquals(TypeSubscription.SEMESTRIEL)/6
                 + subscriptionRepository.recurringRevenueByTypeSubEquals(TypeSubscription.ANNUAL)/12;
         log.info("Monthly Revenue = " + revenue);
-    }
+    }*/
 }

@@ -13,7 +13,7 @@ import java.util.Set;
 
 public interface ISubscriptionRepository extends CrudRepository<Subscription, Long> {
 
-    @Query("select s from Subscription s where s.typeSub = :typeS order by s.startDate")
+   /* @Query("select s from Subscription s where s.typeSub = :typeS order by s.startDate")
     Set<Subscription> findByTypeSubOrderByStartDateAsc(@Param("typeS") TypeSubscription typeSub);
 
     List<Subscription> getSubscriptionsByStartDateBetween(LocalDate date1, LocalDate date2);
@@ -23,7 +23,7 @@ public interface ISubscriptionRepository extends CrudRepository<Subscription, Lo
 
 
     @Query("select (sum(s.price))/(count(s)) from Subscription s where s.typeSub = ?1")
-    Float recurringRevenueByTypeSubEquals(TypeSubscription typeSub);
+    Float recurringRevenueByTypeSubEquals(TypeSubscription typeSub);*/
 
 
 }
