@@ -27,18 +27,7 @@ pipeline {
          sh "mvn sonar:sonar -Dsonar.login=admin -Dsonar.password=azerty123"
         }}
       }
-      /*  stage("MOCKITO") {
-                steps {
-                    	dir('gestion-station-ski'){
-                sh "mvn test -Dtest=tn.esprit.spring.services.SkierServiceImpMock"
-                }}
-              }*/
-//     stage("MOCKITO") {
-//       steps {
-//       dir('gestion-station-ski'){
-//         sh "mvn test -Dtest=tn.esprit.spring.services.SkierServiceImpMock"
-//       }}
-//     }
+
 stage('MVN NEXUS')
         {
         steps {
@@ -71,8 +60,7 @@ stage("build docker image") {
                              dir('gestion-station-ski'){
                               sh 'docker build -t yassine-sae4-gestion-station-ski:latest .'
                            //   sh 'docker tag yassine-kochkache-sae4-gestion-station-ski:latest yassine987/yassine-kochkache-sae4-gestion-station-ski:latest'
-   git branch: 'master', url: 'https://github.com/yassine-kochkache/Angular.git'
-               sh 'docker build -t yassine987/angular:latest -f Dockerfile .'
+
 
                             }
                           }}
@@ -98,8 +86,7 @@ withCredentials([string(credentialsId: 'dock-pwd', variable: 'dockpwd')]) {
              sh ' docker login -u yassine987 -p ${dockpwd} '
               sh 'docker tag yassine-sae4-gestion-station-ski:latest yassine987/yassine-sae4-gestion-station-ski:latest'
            //   sh 'docker login'
-             sh 'docker push yassine987/yassine-sae4-gestion-station-ski:latest'
-sh 'docker push yassine987/angular:latest'
+
           }
         }}
       }

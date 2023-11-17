@@ -30,13 +30,6 @@ services:
       }'
     stdin_open: true
     tty: true
-  angular-app:
-    image: yassine987/angular:latest
-    container_name: angular
-    restart: on-failure
-    ports:
-      - "4200:4200"
-    depends_on:
-      - backend
+
 volumes:
   db:
