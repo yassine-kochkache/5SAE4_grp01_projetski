@@ -42,7 +42,7 @@ stage('MVN NEXUS')
      sh 'docker build -t khaznaji/test:latest -f Dockerfile .'
    }
  }*/
-  stage("BUILD DOCKER IMAGE") {
+ /* stage("BUILD DOCKER IMAGE") {
              steps {
                    dir('gestion-station-ski') {
 
@@ -54,7 +54,6 @@ stage('MVN NEXUS')
        stage('docker push'){
                         steps{
                               dir('gestion-station-ski') {
-
                             script{
                                 sh 'docker login -u "khaznaji" -p "191JFT2725" docker.io'
                                 sh 'docker push khaznaji/oumaymalynakhaznaji-5sae4-g1-gestion-station-ski:latest'
@@ -71,8 +70,8 @@ stage('MVN NEXUS')
                        sh 'docker compose up -d'
                    }}
                }
-
- /* stage('MAIL BUILD') {
+*/
+  stage('MAIL BUILD') {
              steps {
                  script {
                      currentBuildResult = currentBuild.result
@@ -86,6 +85,19 @@ stage('MVN NEXUS')
                  }
              }
          }
-*/
+post {
+        failure {
+            emailext subject: "Failed: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'",
+                      body: "Something is wrong with ${env.JOB_NAME} build #${env.BUILD_NUMBER}\n\n${BUILD_LOG_REGEX, linesToDisplay=10}",
+                      to: 'oumaymalyna.khaznaji@esprit.tn',
+                      mimeType: 'text/html'
+        }
+        success {
+            emailext subject: "Successful: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'",
+                      body: "Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' has finished successfully.\n\n${BUILD_LOG_REGEX, linesToDisplay=10}",
+                      to: 'oumaymalyna.khaznaji@esprit.tn',
+                      mimeType: 'text/html'
+        }
+    }
 
 }}
