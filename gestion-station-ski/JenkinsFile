@@ -28,7 +28,7 @@ pipeline {
         }}
       }
 
-stage('MVN NEXUS')
+stage('NEXUS')
         {
         steps {
         dir('gestion-station-ski'){
@@ -86,12 +86,13 @@ withCredentials([string(credentialsId: 'dock-pwd', variable: 'dockpwd')]) {
              sh ' docker login -u yassine987 -p ${dockpwd} '
               sh 'docker tag yassine-sae4-gestion-station-ski:latest yassine987/yassine-sae4-gestion-station-ski:latest'
            //   sh 'docker login'
+           sh 'docker push yassine987/yassine-sae4-gestion-station-ski:lates '
 
           }
         }}
       }
 
-stage('docker compose') {
+stage('docker-compose') {
               steps{
                              dir('gestion-station-ski'){
 
