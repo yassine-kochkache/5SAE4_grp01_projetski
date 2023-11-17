@@ -1,7 +1,7 @@
 version: "3"
 
 services:
-  mysqldb:
+  mysql:
     image: mysql:8.0
     restart: unless-stopped
     environment:
@@ -14,10 +14,10 @@ services:
   backend:
     image: mazizkaroui/aziz-karoui-5sae4-gestion-station-ski:latest
     ports:
-      - 8089:8089
+      - "8089:8089"
     restart: on-failure
     depends_on:
-      - mysqldb
+      - mysql
     stdin_open: true
     tty: true
 
