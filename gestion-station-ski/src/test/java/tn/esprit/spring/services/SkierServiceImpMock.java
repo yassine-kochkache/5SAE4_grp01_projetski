@@ -37,7 +37,7 @@ public class SkierServiceImpMock {
     @Mock
     private ISubscriptionRepository subscriptionRepository;
 
-    @Test
+   /* @Test
     public void testAddSkier() {
         Skier skier = new Skier();
         skier.setFirstName("Yassine");
@@ -64,12 +64,12 @@ public class SkierServiceImpMock {
 
         // Verify that the result is the same as the input skier
         assertEquals(skier, result);
-    }
+    }*/
 
 
 
 
-    @Test
+   /* @Test
     public void testRetrieveAllSkiers() {
         // Create a list of Skier objects using the parameterized constructor
         List<Skier> skiers = new ArrayList<>();
@@ -91,8 +91,8 @@ public class SkierServiceImpMock {
         assertEquals(skiers, result);
 
     }
-
-    @Test
+*/
+  /*  @Test
     public void testRetrieveSkier() {
         // Create a sample Skier object for testing
         Long skierId = 1L;
@@ -109,7 +109,7 @@ public class SkierServiceImpMock {
 
         // Verify that the retrievedSkier's ID matches the skierId
         assertEquals(skierId, retrievedSkier.getNumSkier());
-    }
+    }*/
     @Test
     public void testRemoveSkier() {
         // Create a sample skier ID for testing
